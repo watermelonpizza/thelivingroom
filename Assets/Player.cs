@@ -2,23 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    public Animator animator;
     public PlayerMovementSettings movementSettings;
+
+    private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
 
     [HideInInspector]
     public bool movementSettingsFoldout = true;
 
-    void Update()
+    private void Start()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        _animator = GetComponent<Animator>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Magnitude", movement.magnitude);
+    private void Update()
+    {
+        Vector2 movement = new Vector2(Input.GetAxis("Horizontal") * movementSettings.speed, Input.GetAxis("Vertical") * movementSettings.speed);
 
-        transform.position = transform.position + (movement * Time.deltaTime) * movementSettings.speed;
+        _animator.SetFloat("Horizontal", movement.x);
+        _animator.SetFloat("Vertical", movement.y);
+        _animator.SetFloat("Magnitude", movement.magnitude);
+
+        //transform.position = transform.position + (movement * Time.deltaTime) * movementSettings.speed;
+
+        _rigidbody2D.velocity = movement;
     }
 
     private void OnGUI()
