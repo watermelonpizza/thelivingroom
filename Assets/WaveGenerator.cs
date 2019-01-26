@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GameState))]
+[RequireComponent(typeof(GameStateManager))]
+[RequireComponent(typeof(MementoManager))]
+[RequireComponent(typeof(MoverManager))]
 public class WaveGenerator : MonoBehaviour
 {
     public GameSettings gameSettings;
-    public GameObject moverPrefab;
+    public GameSettings.Wave currentWave;
 
+    private GameStateManager _gameStateManager;
+    private MementoManager _mementoManager;
+    private MoverManager _moverManager;
     private Coroutine _runningWave;
+
+    private void Start()
+    {
+        _gameStateManager = GetComponent<GameStateManager>();
+        _mementoManager = GetComponent<MementoManager>();
+        _moverManager = GetComponent<MoverManager>();
+    }
 
     private void Update()
     {
-        if (gameSettings.gameState != GameSettings.GameState.Running || gameSettings.currentWave == gameSettings.waves.Length)
+        if (_gameStateManager.gameState != GameStateManager.GameState.Running)
         {
             if (_runningWave != null)
             {
@@ -21,7 +33,7 @@ public class WaveGenerator : MonoBehaviour
 
             return;
         }
-        
+
         if (_runningWave == null)
         {
             _runningWave = StartCoroutine(RunNextWave());
@@ -30,20 +42,20 @@ public class WaveGenerator : MonoBehaviour
 
     private IEnumerator RunNextWave()
     {
-        gameSettings.currentWave = Mathf.Clamp(gameSettings.currentWave + 1, 0, gameSettings.waves.Length);
+        _gameStateManager.currentWave = Mathf.Clamp(_gameStateManager.currentWave + 1, 0, gameSettings.waves.Length);
 
-        var wave = gameSettings.waves[gameSettings.currentWave - 1];
+        currentWave = gameSettings.waves[_gameStateManager.currentWave - 1].Clone();
 
-        for (int i = 0; i < wave.numberOfEnemies; i++)
+        while (currentWave.numberOfEnemies > 0)
         {
-            SpawnEnemy();
+            Memento memento = null;
+            yield return new WaitUntil(() => _mementoManager.TryClaimMemento(out memento));
+
+            var mover = _moverManager.SpawnMover();
+            currentWave.numberOfEnemies--;
+            mover.TargetMemento(memento);
+
+            yield return new WaitForSeconds(currentWave.secondsBetweenEachSpawn + Random.Range(-currentWave.spawnJitter, currentWave.spawnJitter));
         }
-
-        return null;
-    }
-
-    private void SpawnEnemy()
-    {
-
     }
 }
