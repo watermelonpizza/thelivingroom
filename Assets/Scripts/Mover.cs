@@ -15,6 +15,7 @@ public class Mover : MonoBehaviour
     private MementoManager _mementoManager;
     private MoverManager _moverManager;
     private SpawnPointManager _spawnPointManager;
+    private Animator _animator;
 
     public void TargetMemento(Memento memento)
     {
@@ -26,6 +27,7 @@ public class Mover : MonoBehaviour
         if (_claimedMemento != null && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
             _spooked = true;
+            _animator.SetTrigger("Scared");
             _claimedMemento.Drop();
             _mementoManager.ForfeitMemento(_claimedMemento);
             _claimedMemento = null;
@@ -42,12 +44,16 @@ public class Mover : MonoBehaviour
         _spawnPointManager = gameController.GetComponent<SpawnPointManager>();
         _moverManager = gameController.GetComponent<MoverManager>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponentInChildren<Animator>();
 
         _navMeshAgent.speed = settings.walkingSpeed;
     }
 
     private void Update()
     {
+        _animator.SetFloat("Horizontal", _navMeshAgent.velocity.normalized.x);
+        _animator.SetFloat("Vertical", _navMeshAgent.velocity.normalized.y);
+
         if (_claimedMemento != null && _claimedMemento.mementoState != Memento.MementoState.PickedUp)
         {
             _destination = _claimedMemento.transform.position;
@@ -84,8 +90,10 @@ public class Mover : MonoBehaviour
 
     private IEnumerator PickUpObject()
     {
+        _animator.SetTrigger("PickingUp");
         yield return new WaitForSeconds(settings.timeToPickupItem);
 
+        _animator.SetTrigger("Holding");
         _navMeshAgent.speed = settings.carrySpeed;
         _claimedMemento.PickUp(this);
         _destination = _spawnPointManager.GetRandomSpawnPoint();

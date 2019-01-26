@@ -14665,6 +14665,29 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &388288985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1580056665401762, guid: 48ed687936c5b924f98a6a629a2d6ec1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1777617909}
+--- !u!95 &388288986
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 388288985}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1bb4398af7ee5c40bf1956fa53428ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &444260282
 GameObject:
   m_ObjectHideFlags: 0

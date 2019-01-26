@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4074476826382668}
   - component: {fileID: 212275948471974484}
   - component: {fileID: 61141083442606402}
+  - component: {fileID: 95762378589973934}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Mover
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411742036761612}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9.434557, y: 0.34985185, z: -0}
+  m_LocalPosition: {x: 13.061472, y: 1.0888169, z: -0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4074476826382668}
@@ -118,6 +119,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0842986, y: 7.3519635}
   m_EdgeRadius: 0
+--- !u!95 &95762378589973934
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049820891626634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 495134680fe42d8488b13c18cb0f3374, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114144203485079752
 MonoBehaviour:
   m_ObjectHideFlags: 1
