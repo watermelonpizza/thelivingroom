@@ -6,18 +6,8 @@ using UnityEditor;
 [CreateAssetMenu]
 public class GameSettings : ScriptableObject
 {
-    public GameState gameState;
-
     public Wave[] waves;
-    public int currentWave;
-
-    public enum GameState
-    {
-        PreStart,
-        Menu,
-        Running,
-        GameOver,
-    }
+    public int startingFeels;
 
     [System.Serializable]
     public class Wave
@@ -25,5 +15,10 @@ public class GameSettings : ScriptableObject
         public int numberOfEnemies = 1;
         public float secondsBetweenEachSpawn;
         public float spawnJitter;
+
+        public Wave Clone()
+        {
+            return (Wave)MemberwiseClone();
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour {
+public class MoverSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
