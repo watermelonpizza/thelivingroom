@@ -11,5 +11,7 @@ public class MoverSettings : ScriptableObject
     [Range(.1f, 10)]
     public float carrySpeed;
     [Range(.1f, 10)]
+    public float scaredSpeed;
+    [Range(.1f, 10)]
     public float timeToPickupItem;
 }

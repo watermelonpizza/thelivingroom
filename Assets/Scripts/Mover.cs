@@ -6,6 +6,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Mover : MonoBehaviour
 {
+    public MoverSettings settings;
+
+    private bool _spooked;
     private Vector3 _destination = Vector3.negativeInfinity;
     private Memento _claimedMemento;
     private NavMeshAgent _navMeshAgent;
@@ -22,10 +25,13 @@ public class Mover : MonoBehaviour
     {
         if (_claimedMemento != null && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
+            _spooked = true;
             _claimedMemento.Drop();
             _mementoManager.ForfeitMemento(_claimedMemento);
             _claimedMemento = null;
-            _moverManager.DestroyMover(this);
+
+            _destination = _spawnPointManager.GetRandomSpawnPoint();
+            _navMeshAgent.speed = settings.scaredSpeed;
         }
     }
 
@@ -36,11 +42,13 @@ public class Mover : MonoBehaviour
         _spawnPointManager = gameController.GetComponent<SpawnPointManager>();
         _moverManager = gameController.GetComponent<MoverManager>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        _navMeshAgent.speed = settings.walkingSpeed;
     }
 
     private void Update()
     {
-        if (_claimedMemento.mementoState != Memento.MementoState.PickedUp)
+        if (_claimedMemento != null && _claimedMemento.mementoState != Memento.MementoState.PickedUp)
         {
             _destination = _claimedMemento.transform.position;
         }
@@ -53,24 +61,33 @@ public class Mover : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_claimedMemento.mementoState != Memento.MementoState.PickedUp
-            && collision.gameObject == _claimedMemento.gameObject)
+        if (_claimedMemento != null)
         {
+            if (_claimedMemento.mementoState != Memento.MementoState.PickedUp
+            && collision.gameObject == _claimedMemento.gameObject)
+            {
+                StartCoroutine(PickUpObject());
+            }
+
+            if (collision.tag == "Exit" && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
+            {
+                _mementoManager.DestroyMemento(_claimedMemento);
+                _moverManager.DestroyMover(this);
+            }
         }
 
-
-        if (collision.tag == "Exit" && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
+        if (collision.tag == "Exit" && _spooked)
         {
-            _mementoManager.DestroyMemento(_claimedMemento);
             _moverManager.DestroyMover(this);
         }
     }
 
     private IEnumerator PickUpObject()
     {
-        //yield return WaitForSeconds(settings);
+        yield return new WaitForSeconds(settings.timeToPickupItem);
+
+        _navMeshAgent.speed = settings.carrySpeed;
         _claimedMemento.PickUp(this);
         _destination = _spawnPointManager.GetRandomSpawnPoint();
-        return null;
     }
 }
