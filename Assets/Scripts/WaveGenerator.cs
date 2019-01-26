@@ -14,11 +14,18 @@ public class WaveGenerator : MonoBehaviour
     private MoverManager _moverManager;
     private Coroutine _runningWave;
 
+    public AudioSource dogBark; //IN PROGRESS
+
+    public GameObject dogIndicator;
+    Animator dogAnim;
+
     private void Start()
     {
         _gameStateManager = GetComponent<GameStateManager>();
         _mementoManager = GetComponent<MementoManager>();
         _moverManager = GetComponent<MoverManager>();
+
+        dogAnim = dogIndicator.GetComponent <Animator>();
     }
 
     private void Update()
@@ -39,8 +46,12 @@ public class WaveGenerator : MonoBehaviour
         }
     }
 
+
     private IEnumerator RunNextWave()
     {
+        dogAnim.SetTrigger("WaveSpawning");
+
+
         _gameStateManager.currentWaveNumber = Mathf.Clamp(_gameStateManager.currentWaveNumber + 1, 0, gameSettings.waves.Length);
 
         _gameStateManager.currentWave = gameSettings.waves[_gameStateManager.currentWaveNumber - 1].Clone();
@@ -68,6 +79,7 @@ public class WaveGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(gameSettings.timeBetweenWaves);
             _runningWave = null;
+
         }
     }
 }
