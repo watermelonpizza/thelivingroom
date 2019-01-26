@@ -55,7 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75eecc7cbfb2ac243b1ccc6af1af4aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverPrefab: {fileID: 0}
+  moverPrefab: {fileID: 1411742036761612, guid: fc73f79f289ce694f8dafb8f7690d843,
+    type: 2}
 --- !u!114 &114511210994573002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,7 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c54cf42411c8943a8b146d1e90f4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettings: {fileID: 0}
+  gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
+  dogBark: {fileID: 0}
+  dogIndicator: {fileID: 0}
 --- !u!114 &114568835452723248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d13b41449ae3e4893bbbd630787032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettings: {fileID: 0}
+  gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
   gameState: 0
   currentWaveNumber: 0
   currentWave:
@@ -109,4 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9569f88de9083a248b01741284bac124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
+  spawnPoints:
+  - spawnPoint: {fileID: 0}
+    enabled: 1
+  - spawnPoint: {fileID: 0}
+    enabled: 1

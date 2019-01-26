@@ -11,37 +11,28 @@ public class FeelsIndicator : MonoBehaviour {
     public Sprite mediumFeels;
     public Sprite sadFeels;
 
-    // Use this for initialization
-    void Start ()
-    {
-        var gameController = GameObject.FindGameObjectWithTag("GameController"); 
-        _gameStateManager = gameController.GetComponent<GameStateManager>();
+    Animator anim;
 
-        feelsSprite = GetComponent<SpriteRenderer>();
+    // Use this for initialization
+    void Start()
+    {
+        var gameController = GameObject.FindGameObjectWithTag("GameController");
+        _gameStateManager = gameController.GetComponent<GameStateManager>();
+        anim = GetComponent<Animator>();
+
+        // feelsSprite = GetComponent<SpriteRenderer>();
     }
+
+
+    
+
+
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (_gameStateManager.currentFeels ==100)
-        {
-            feelsSprite.sprite = maxFeels;
-        }
 
-        if (_gameStateManager.currentFeels <100 && _gameStateManager.currentFeels >= 75)
-        {
-            feelsSprite.sprite = highFeels;
-        }
-
-        if (_gameStateManager.currentFeels < 75 && _gameStateManager.currentFeels >= 50)
-        {
-            feelsSprite.sprite = mediumFeels;
-        }
-
-        if (_gameStateManager.currentFeels < 100 && _gameStateManager.currentFeels >= 75)
-        {
-            feelsSprite.sprite = sadFeels;
-        }
+        anim.SetInteger ("FeelsValue", _gameStateManager.currentFeels);          
 
     }
 }
