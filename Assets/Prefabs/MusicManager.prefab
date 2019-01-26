@@ -647,15 +647,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe760a59830b4e4eb5ddeec86bee673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHealth: {fileID: 0}
-  highHealth: {fileID: 0}
-  midHealth: {fileID: 0}
-  lowHealth: {fileID: 0}
-  criticalHealth: {fileID: 0}
-  introTrack: {fileID: 0}
-  fullHealthTrack: {fileID: 0}
-  highHealthClip: {fileID: 0}
-  midHealthClip: {fileID: 0}
+  fullHealth: {fileID: 82168830996736724}
+  highHealth: {fileID: 82737487684101034}
+  midHealth: {fileID: 82623694189967304}
+  lowHealth: {fileID: 82074264629942798}
+  criticalHealth: {fileID: 82403655471343100}
+  introTrack: {fileID: 8300000, guid: a177a93a6f36e0444a54e68204334339, type: 3}
+  fullHealthTrack: {fileID: 8300000, guid: 775571f2bbb3ba940a7e47ba64fb2b83, type: 3}
+  highHealthClip: {fileID: 8300000, guid: 53af897838dc81e4cb04086b6daccb52, type: 3}
+  midHealthClip: {fileID: 8300000, guid: b8996cdd00e3a6b4293f6e6d70a08ab4, type: 3}
   lowHealthClip: {fileID: 0}
   criticalHealthClip: {fileID: 0}
   feels: 100
