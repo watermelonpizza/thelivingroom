@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   range: 5
-  cooldown: 2
+  cooldown: 0.5
