@@ -50,12 +50,14 @@ public class Player : MonoBehaviour
             var bottomRight = new Vector3(topRight.x, bottomLeft.y, transform.position.z);
             var topLeft = new Vector3(bottomLeft.x, topRight.y, transform.position.z);
 
-
             GameObject meshObject = new GameObject("mesh");
             meshObject.transform.parent = transform;
 
+           var whooshAttack = Instantiate(playerAttackPrefab, meshObject.transform);
+            whooshAttack.GetComponent<ParticleSystem>().Play();
+
             var mesh = new Mesh();
-            meshObject.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
+          //  meshObject.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
             meshObject.AddComponent<MeshFilter>().sharedMesh = mesh;
             meshObject.AddComponent<PlayerAttackBehaviour>();
             
