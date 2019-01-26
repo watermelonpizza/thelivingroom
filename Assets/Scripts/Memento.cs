@@ -15,6 +15,7 @@ public class Memento : MonoBehaviour
 
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
+    private Vector3 _originalScale;
     private ParticleSystem _particleSystem;
     private Mover _carrier;
 
@@ -34,7 +35,7 @@ public class Memento : MonoBehaviour
         _carrier = null;
         transform.SetParent(null, true);
         transform.rotation = _originalRotation;
-        transform.localScale = Vector3.one;
+        transform.localScale = _originalScale;
         _triggered = false;
     }
 
@@ -43,6 +44,7 @@ public class Memento : MonoBehaviour
         mementoState = MementoState.Idle;
         transform.position = _originalPosition;
         transform.rotation = _originalRotation;
+        transform.localScale = _originalScale;
     }
 
     private void Start()
