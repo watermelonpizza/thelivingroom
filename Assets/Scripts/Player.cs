@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0 && CanFire())
         {
+            _animator.SetTrigger("Attack");
             _lastFire = Time.timeSinceLevelLoad;
 
             var b = _boxCollider2D.bounds;
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
             whooshAttack.GetComponent<ParticleSystem>().Play();
 
             var mesh = new Mesh();
-          //  meshObject.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
+            meshObject.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
             meshObject.AddComponent<MeshFilter>().sharedMesh = mesh;
             meshObject.AddComponent<PlayerAttackBehaviour>();
             
