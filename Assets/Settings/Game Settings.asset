@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb952161c698dc4e8dbfe743b147300, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  gameState: 2
   waves:
-  - numberOfEnemies: 10
-    secondsBetweenEachSpawn: 0
-    spawnJitter: 0
-  currentWave: 1
+  - numberOfEnemies: 2
+    secondsBetweenEachSpawn: 2
+    spawnJitter: 0.5
+  timeBetweenWaves: 0
+  startingFeels: 10
