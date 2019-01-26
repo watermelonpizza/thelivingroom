@@ -6967,7 +6967,7 @@ Prefab:
     - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 2}
       propertyPath: spawnPoints.Array.data[0].enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 2}
