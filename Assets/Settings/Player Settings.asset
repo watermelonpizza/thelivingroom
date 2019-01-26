@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24ffd71eaab79e4da17d0a90e1a2c55, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   range: 5
   cooldown: 0.5

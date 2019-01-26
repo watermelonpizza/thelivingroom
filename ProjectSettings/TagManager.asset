@@ -19,8 +19,8 @@ TagManager:
   - 
   - Player
   - Exit
-  - 
-  - 
+  - Enemy
+  - Walls
   - 
   - 
   - 
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1970827785
+    locked: 0
+  - name: Blahbah
+    uniqueID: 640771123
     locked: 0
