@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour {
 
-    public AudioSource audioSource;
-   // public AudioClip introTrack;
+    private AudioSource audioSource;
+    public AudioClip introTrack;
     public AudioClip loopTrack;
 
    // private bool isPlaying;
@@ -14,8 +14,8 @@ public class MusicManager : MonoBehaviour {
     void Start ()
     {
         audioSource = GetComponent<AudioSource>();
-                     
-
+        audioSource.clip = introTrack;
+        audioSource.Play();
 	}
 	
 	// Update is called once per frame
