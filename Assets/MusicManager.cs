@@ -4,30 +4,57 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour {
 
-    private AudioSource audioSource;
+    public AudioSource firstTrack;
+    public AudioSource layerOne;
     public AudioClip introTrack;
     public AudioClip loopTrack;
+    public AudioClip layer1clip;
     float trackDuration;
 
-   // private bool isPlaying;
+    public bool layerOneActive = false;
 
     // Use this for initialization
     void Start ()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = introTrack;
-      //  trackDuration = audioSource.clip.length;
-        audioSource.Play();
+        firstTrack.clip = introTrack;
+        firstTrack.Play();
+        layerOne.volume = 0.0f;
+        firstTrack.volume = 1.0f;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    if (!audioSource.isPlaying)
+	    if (!firstTrack.isPlaying)
         {
-            audioSource.clip = loopTrack;
-            audioSource.Play();
-            audioSource.loop = isActiveAndEnabled;
+            firstTrack.clip = loopTrack;
+            firstTrack.Play();
+            firstTrack.loop = isActiveAndEnabled;
+            layerOne.clip = layer1clip;
+            layerOne.Play();
+            layerOne.loop = isActiveAndEnabled;
         }
-	}
+
+        if (Input.GetButton("Fire2"))
+        {
+            SwapLayers();
+        }
+    }
+
+    void SwapLayers()
+    {
+        if (layerOneActive == false)
+        {
+            firstTrack.volume = 0.0f;
+            layerOne.volume = 1.0f;
+            layerOneActive = true;
+        }
+
+        else if (layerOneActive == true)
+        {
+            firstTrack.volume = 1.0f;
+            layerOne.volume = 0.0f;
+            layerOneActive = false;
+        }
+    }
 }
