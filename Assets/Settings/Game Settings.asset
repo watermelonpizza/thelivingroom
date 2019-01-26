@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Name: Game Settings
   m_EditorClassIdentifier: 
   waves:
-  - numberOfEnemies: 2
+  - numberOfEnemies: 3
     secondsBetweenEachSpawn: 2
     spawnJitter: 0.5
-  timeBetweenWaves: 0
+  - numberOfEnemies: 4
+    secondsBetweenEachSpawn: 1
+    spawnJitter: 0.5
+  timeBetweenWaves: 5
   startingFeels: 10
