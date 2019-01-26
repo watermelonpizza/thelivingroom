@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
+  dogBark: {fileID: 0}
   dogIndicator: {fileID: 0}
 --- !u!114 &114568835452723248
 MonoBehaviour:

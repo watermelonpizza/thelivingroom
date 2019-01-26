@@ -15,12 +15,20 @@ public class MusicManager : MonoBehaviour
     public AudioClip highHealthClip;
     public AudioClip midHealthClip;
     public AudioClip lowHealthClip;
- //   public AudioClip criticalHealthClip;
 
-    public float feels = 100f;
+
+    private GameStateManager _gameStateManager;
+    //   public AudioClip criticalHealthClip;
+
+    
+
+    //public float _gameStateManager.currentFeels = 100f;
 
     void Start ()
     {
+        var gameController = GameObject.FindGameObjectWithTag("GameController");
+        _gameStateManager = gameController.GetComponent<GameStateManager>();
+
         fullHealth.clip = introTrack;
         fullHealth.Play();
 
@@ -30,15 +38,14 @@ public class MusicManager : MonoBehaviour
         lowHealth.volume = 0.0f;
      //   criticalHealth.volume = 0.0f;
 
-        if (feels != 100) feels = 100f;
 	}
 	
 	void Update ()
     {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            feels -= 20;
-        }
+        //if (Input.GetButtonDown("Fire2"))
+        //{
+        //    _gameStateManager.currentFeels -= 20;
+        //}
 
         if (!fullHealth.isPlaying)
         {
@@ -63,24 +70,25 @@ public class MusicManager : MonoBehaviour
        //     criticalHealth.loop = isActiveAndEnabled;
         }
 
-        if (feels <100 && feels >=76)
+        if (_gameStateManager.currentFeels <100 && _gameStateManager.currentFeels >=76)
         {
             HighHealth();
             // high health
         }
 
-        if (feels <=75 && feels >= 51)
+        if (_gameStateManager.currentFeels <=75 && _gameStateManager.currentFeels >= 51)
         {
             // mid health
-            MidHealth();        }
+            MidHealth();
+        }
 
-        if (feels <=50 && feels >=26)
+        if (_gameStateManager.currentFeels <=50 && _gameStateManager.currentFeels >=26)
         {
             //low health
             LowHealth();
         }
 
-        //  if (feels <25)
+        //  if (_gameStateManager.currentFeels <25)
         //   {
             //critical health
         //       CriticalHealth();
