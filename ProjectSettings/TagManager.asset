@@ -43,6 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 4230375193
+    locked: 0
+  - name: Memento
+    uniqueID: 1522498627
+    locked: 0
+  - name: Mover
+    uniqueID: 4051572207
+    locked: 0
   - name: Player
     uniqueID: 4156421173
     locked: 0
