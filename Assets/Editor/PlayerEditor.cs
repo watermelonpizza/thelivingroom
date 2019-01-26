@@ -21,7 +21,7 @@ public class PlayerEditor : Editor
             }
         }
 
-        DrawSettingsEditor(_player.movementSettings, () => { }, ref _player.movementSettingsFoldout, ref _movementSettingsEditor);
+        DrawSettingsEditor(_player.settings, () => { }, ref _player.movementSettingsFoldout, ref _movementSettingsEditor);
     }
 
     private void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)

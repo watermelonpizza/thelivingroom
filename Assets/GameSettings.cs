@@ -7,6 +7,7 @@ using UnityEditor;
 public class GameSettings : ScriptableObject
 {
     public Wave[] waves;
+    public float timeBetweenWaves;
     public int startingFeels;
 
     [System.Serializable]

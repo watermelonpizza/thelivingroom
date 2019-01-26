@@ -6,7 +6,8 @@ public class GameStateManager : MonoBehaviour
 {
     public GameSettings gameSettings;
     public GameState gameState;
-    public int currentWave;
+    public int currentWaveNumber;
+    public GameSettings.Wave currentWave;
 
     public int currentFeels;
 

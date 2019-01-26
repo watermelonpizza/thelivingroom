@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Memento
   - Exit
+  - Mover
+  - Wall
   layers:
   - Default
   - TransparentFX

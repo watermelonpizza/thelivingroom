@@ -6,9 +6,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Mover : MonoBehaviour
 {
-    private bool _destinationRequiresSet = false;
     private bool _mementoPickedUp = false;
-    private Vector3 _destination;
+    private Vector3 _destination = Vector3.negativeInfinity;
     private Memento _claimedMemento;
     private NavMeshAgent _navMeshAgent;
     private MementoManager _mementoManager;
@@ -17,13 +16,19 @@ public class Mover : MonoBehaviour
     public void TargetMemento(Memento memento)
     {
         _claimedMemento = memento;
-        _destination = memento.transform.position;
-        _destinationRequiresSet = true;
     }
 
     public void Spook()
     {
-        _mementoManager.ForfeitMemento(_claimedMemento);
+        if (_mementoPickedUp)
+        {
+            _claimedMemento.Drop();
+            _mementoManager.ForfeitMemento(_claimedMemento);
+            _claimedMemento = null;
+            _mementoPickedUp = false;
+            Destroy(gameObject);
+            //_mementoManager.ForfeitMemento(_claimedMemento);
+        }
     }
 
     private void Start()
@@ -36,7 +41,12 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
-        if (_destinationRequiresSet)
+        if (_claimedMemento.mementoState != Memento.MementoState.PickedUp)
+        {
+            _destination = _claimedMemento.transform.position;
+        }
+
+        if (_destination != Vector3.negativeInfinity)
         {
             _navMeshAgent.SetDestination(_destination);
         }
@@ -45,27 +55,14 @@ public class Mover : MonoBehaviour
         {
             _claimedMemento.PickUp(this);
             _destination = _spawnPointManager.GetRandomSpawnPoint();
-            _destinationRequiresSet = true;
             _mementoPickedUp = true;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger");
-        Debug.Log(collision);
-        if (collision.tag == "Player")
-        {
-            _claimedMemento.Drop();
-            _mementoManager.ForfeitMemento(_claimedMemento);
-            _claimedMemento = null;
-            _mementoPickedUp = false;
-            Destroy(gameObject);
-        }
-
         if (collision.tag == "Exit" && _mementoPickedUp)
         {
-            Debug.Log("removed");
             _mementoManager.DestroyMemento(_claimedMemento);
             Destroy(gameObject);
         }

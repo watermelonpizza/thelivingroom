@@ -70,16 +70,14 @@ public class Memento : MonoBehaviour
             switch (mementoState)
             {
                 case MementoState.Idle:
-                    _triggered = true;
-                    StartCoroutine(PlayParticalsAndReset());
                     break;
                 case MementoState.PickedUp:
-                    _triggered = true;
-                    Drop();
+                    //_triggered = true;
+                    //Drop();
                     break;
                 case MementoState.Dropped:
-                    break;
-                case MementoState.Destroyed:
+                    _triggered = true;
+                    StartCoroutine(PlayParticalsAndReset());
                     break;
                 default:
                     break;
@@ -102,6 +100,5 @@ public class Memento : MonoBehaviour
         Idle,
         PickedUp,
         Dropped,
-        Destroyed
     }
 }

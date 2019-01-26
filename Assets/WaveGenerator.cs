@@ -8,7 +8,6 @@ using UnityEngine;
 public class WaveGenerator : MonoBehaviour
 {
     public GameSettings gameSettings;
-    public GameSettings.Wave currentWave;
 
     private GameStateManager _gameStateManager;
     private MementoManager _mementoManager;
@@ -42,20 +41,30 @@ public class WaveGenerator : MonoBehaviour
 
     private IEnumerator RunNextWave()
     {
-        _gameStateManager.currentWave = Mathf.Clamp(_gameStateManager.currentWave + 1, 0, gameSettings.waves.Length);
+        _gameStateManager.currentWaveNumber = Mathf.Clamp(_gameStateManager.currentWaveNumber + 1, 0, gameSettings.waves.Length);
 
-        currentWave = gameSettings.waves[_gameStateManager.currentWave - 1].Clone();
+        _gameStateManager.currentWave = gameSettings.waves[_gameStateManager.currentWaveNumber - 1].Clone();
 
-        while (currentWave.numberOfEnemies > 0)
+        while (_gameStateManager.currentWave.numberOfEnemies > 0)
         {
             Memento memento = null;
             yield return new WaitUntil(() => _mementoManager.TryClaimMemento(out memento));
 
             var mover = _moverManager.SpawnMover();
-            currentWave.numberOfEnemies--;
+            _gameStateManager.currentWave.numberOfEnemies--;
             mover.TargetMemento(memento);
 
-            yield return new WaitForSeconds(currentWave.secondsBetweenEachSpawn + Random.Range(-currentWave.spawnJitter, currentWave.spawnJitter));
+            yield return new WaitForSeconds(_gameStateManager.currentWave.secondsBetweenEachSpawn + Random.Range(-_gameStateManager.currentWave.spawnJitter, _gameStateManager.currentWave.spawnJitter));
+        }
+
+        // Wave ended. Move to next wave.
+        if (_gameStateManager.currentWaveNumber - 1 == gameSettings.waves.Length)
+        {
+            _gameStateManager.gameState = GameStateManager.GameState.GameOver;
+        }
+        else
+        {
+            yield return new WaitForSeconds(gameSettings.timeBetweenWaves);
         }
     }
 }

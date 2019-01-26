@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 50438169399036264}
   m_Layer: 0
   m_Name: Mover
-  m_TagString: Memento
+  m_TagString: Mover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61060931807667214
 BoxCollider2D:
   m_ObjectHideFlags: 1
