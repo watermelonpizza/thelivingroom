@@ -8,14 +8,14 @@ public class MusicManager : MonoBehaviour
     public AudioSource highHealth;
     public AudioSource midHealth;
     public AudioSource lowHealth;
-    public AudioSource criticalHealth;
+   // public AudioSource criticalHealth;
 
     public AudioClip introTrack;
     public AudioClip fullHealthTrack;
     public AudioClip highHealthClip;
     public AudioClip midHealthClip;
     public AudioClip lowHealthClip;
-    public AudioClip criticalHealthClip;
+ //   public AudioClip criticalHealthClip;
 
     public float feels = 100f;
 
@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
         highHealth.volume = 0.0f;
         midHealth.volume = 0.0f;
         lowHealth.volume = 0.0f;
-        criticalHealth.volume = 0.0f;
+     //   criticalHealth.volume = 0.0f;
 
         if (feels != 100) feels = 100f;
 	}
@@ -58,9 +58,9 @@ public class MusicManager : MonoBehaviour
             lowHealth.Play();
             lowHealth.loop = isActiveAndEnabled;
 
-            criticalHealth.clip = criticalHealthClip;
-            criticalHealth.Play();
-            criticalHealth.loop = isActiveAndEnabled;
+       //     criticalHealth.clip = criticalHealthClip;
+       //     criticalHealth.Play();
+       //     criticalHealth.loop = isActiveAndEnabled;
         }
 
         if (feels <100 && feels >=76)
@@ -80,11 +80,11 @@ public class MusicManager : MonoBehaviour
             LowHealth();
         }
 
-        if (feels <25)
-        {
+        //  if (feels <25)
+        //   {
             //critical health
-            CriticalHealth();
-        }
+        //       CriticalHealth();
+        //    }
     }
 
     void HighHealth()
@@ -94,7 +94,7 @@ public class MusicManager : MonoBehaviour
         highHealth.volume = 1.0f;
         midHealth.volume = 0.0f;
         lowHealth.volume = 0.0f;
-         criticalHealth.volume = 0.0f;
+       // criticalHealth.volume = 0.0f;
         
     }
 
@@ -104,7 +104,7 @@ public class MusicManager : MonoBehaviour
         highHealth.volume = 0.0f;
         midHealth.volume = 1.0f;
         lowHealth.volume = 0.0f;
-        criticalHealth.volume = 0.0f;
+      //  criticalHealth.volume = 0.0f;
     }
 
     void LowHealth()
@@ -113,15 +113,15 @@ public class MusicManager : MonoBehaviour
         highHealth.volume = 0.0f;
         midHealth.volume = 0.0f;
         lowHealth.volume = 1.0f;
-        criticalHealth.volume = 0.0f;
+      //  criticalHealth.volume = 0.0f;
     }
 
-    void CriticalHealth()
-    {
-        fullHealth.volume = 0.0f;
-        highHealth.volume = 0.0f;
-        midHealth.volume = 0.0f;
-        lowHealth.volume = 0.0f;
-        criticalHealth.volume = 1.0f;
-    }
+  //  void CriticalHealth()
+ //   {
+ //       fullHealth.volume = 0.0f;
+ //       highHealth.volume = 0.0f;
+ //       midHealth.volume = 0.0f;
+ //       lowHealth.volume = 0.0f;
+      //  criticalHealth.volume = 1.0f;
+//    }
 }

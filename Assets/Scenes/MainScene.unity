@@ -19629,11 +19629,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 2}
-      propertyPath: spawnPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19668,32 +19663,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114511210994573002, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 2}
-      propertyPath: gameSettings
+      propertyPath: dogIndicator
       value: 
-      objectReference: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681,
-        type: 2}
-    - target: {fileID: 114568835452723248, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 2}
-      propertyPath: gameSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681,
-        type: 2}
-    - target: {fileID: 114108105218644064, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 2}
-      propertyPath: moverPrefab
-      value: 
-      objectReference: {fileID: 1411742036761612, guid: fc73f79f289ce694f8dafb8f7690d843,
-        type: 2}
-    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 2}
-      propertyPath: spawnPoints.Array.data[1].enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 2}
-      propertyPath: spawnPoints.Array.data[0].enabled
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1742584543}
     - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 2}
       propertyPath: spawnPoints.Array.data[0].spawnPoint
@@ -48750,6 +48722,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1742584543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1084501175935774, guid: a242dda3c7fe5df4c8dd73de57587aee,
+    type: 2}
+  m_PrefabInternal: {fileID: 1333000959}
 --- !u!1001 &1777617909
 Prefab:
   m_ObjectHideFlags: 0
