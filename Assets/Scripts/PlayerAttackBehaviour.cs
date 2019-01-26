@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerAttackBehaviour : MonoBehaviour
 {
-    private void Start()
-    {
-    }
+    public GameObject hitAttackEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Mover")
         {
-            collision.GetComponentInParent<Mover>().Spook();
+            var mover = collision.GetComponentInParent<Mover>();
+
+            if (mover.Spook())
+            {
+                var hitAttack = Instantiate(hitAttackEffect, mover.transform);
+                Destroy(hitAttack, 2f);
+            }
+
         }
     }
 }

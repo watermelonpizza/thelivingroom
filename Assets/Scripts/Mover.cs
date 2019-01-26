@@ -22,7 +22,7 @@ public class Mover : MonoBehaviour
         _claimedMemento = memento;
     }
 
-    public void Spook()
+    public bool Spook()
     {
         if (_claimedMemento != null && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
@@ -34,7 +34,10 @@ public class Mover : MonoBehaviour
 
             _destination = _spawnPointManager.GetRandomSpawnPoint();
             _navMeshAgent.speed = settings.scaredSpeed;
+            return true;
         }
+
+        return false;
     }
 
     private void Start()

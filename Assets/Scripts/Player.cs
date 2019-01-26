@@ -51,17 +51,12 @@ public class Player : MonoBehaviour
             var bottomRight = new Vector3(topRight.x, bottomLeft.y, transform.position.z);
             var topLeft = new Vector3(bottomLeft.x, topRight.y, transform.position.z);
 
-            GameObject meshObject = new GameObject("mesh");
-            meshObject.transform.parent = transform;
-
-           var whooshAttack = Instantiate(playerAttackPrefab, meshObject.transform);
-            whooshAttack.GetComponent<ParticleSystem>().Play();
-
+            var whooshAttack = Instantiate(playerAttackPrefab);
             var mesh = new Mesh();
-            meshObject.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
-            meshObject.AddComponent<MeshFilter>().sharedMesh = mesh;
-            meshObject.AddComponent<PlayerAttackBehaviour>();
-            
+
+            whooshAttack.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
+            whooshAttack.AddComponent<MeshFilter>().sharedMesh = mesh;
+
             mesh.Clear();
 
             if (_lastDirection == Vector2.up)
@@ -119,10 +114,10 @@ public class Player : MonoBehaviour
             mesh.triangles = new int[] { 0, 1, 3, 3, 1, 2 };
             mesh.RecalculateNormals();
 
-            var boxCollider = meshObject.AddComponent<BoxCollider2D>();
+            var boxCollider = whooshAttack.AddComponent<BoxCollider2D>();
             boxCollider.isTrigger = true;
 
-            Destroy(meshObject, .3f);
+            Destroy(whooshAttack, .5f);
         }
 
         if (movement != Vector2.zero)
