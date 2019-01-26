@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour {
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = introTrack;
-        audioSource.clip.length;
+        //audioSource.clip.length;
         audioSource.Play();
 	}
 	
