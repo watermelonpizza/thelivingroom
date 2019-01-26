@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-
     public AudioSource fullHealth;
     public AudioSource highHealth;
     public AudioSource midHealth;

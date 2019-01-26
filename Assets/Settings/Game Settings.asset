@@ -11,6 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fdba374a925b4cbfa1635ab3c2784, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  waves: []
-  timeBetweenWaves: 0
-  startingFeels: 0
+  waves:
+  - numberOfEnemies: 2
+    secondsBetweenEachSpawn: 3
+    spawnJitter: 0.5
+  - numberOfEnemies: 4
+    secondsBetweenEachSpawn: 2
+    spawnJitter: 0.5
+  timeBetweenWaves: 5
+  startingFeels: 100
