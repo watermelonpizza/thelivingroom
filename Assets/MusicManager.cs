@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour {
     private AudioSource audioSource;
     public AudioClip introTrack;
     public AudioClip loopTrack;
+    float trackDuration;
 
    // private bool isPlaying;
 
@@ -15,7 +16,7 @@ public class MusicManager : MonoBehaviour {
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = introTrack;
-        //audioSource.clip.length;
+      //  trackDuration = audioSource.clip.length;
         audioSource.Play();
 	}
 	
