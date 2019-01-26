@@ -57,14 +57,17 @@ public class WaveGenerator : MonoBehaviour
             yield return new WaitForSeconds(_gameStateManager.currentWave.secondsBetweenEachSpawn + Random.Range(-_gameStateManager.currentWave.spawnJitter, _gameStateManager.currentWave.spawnJitter));
         }
 
+        yield return new WaitUntil(() => _moverManager.AllMoversDestroyed());
+
         // Wave ended. Move to next wave.
-        if (_gameStateManager.currentWaveNumber - 1 == gameSettings.waves.Length)
+        if (_gameStateManager.currentWaveNumber == gameSettings.waves.Length)
         {
             _gameStateManager.gameState = GameStateManager.GameState.GameOver;
         }
         else
         {
             yield return new WaitForSeconds(gameSettings.timeBetweenWaves);
+            _runningWave = null;
         }
     }
 }

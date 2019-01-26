@@ -11,6 +11,7 @@ public class Mover : MonoBehaviour
     private Memento _claimedMemento;
     private NavMeshAgent _navMeshAgent;
     private MementoManager _mementoManager;
+    private MoverManager _moverManager;
     private SpawnPointManager _spawnPointManager;
 
     public void TargetMemento(Memento memento)
@@ -26,8 +27,7 @@ public class Mover : MonoBehaviour
             _mementoManager.ForfeitMemento(_claimedMemento);
             _claimedMemento = null;
             _mementoPickedUp = false;
-            Destroy(gameObject);
-            //_mementoManager.ForfeitMemento(_claimedMemento);
+            _moverManager.DestroyMover(this);
         }
     }
 
@@ -36,6 +36,7 @@ public class Mover : MonoBehaviour
         var gameController = GameObject.FindGameObjectWithTag("GameController");
         _mementoManager = gameController.GetComponent<MementoManager>();
         _spawnPointManager = gameController.GetComponent<SpawnPointManager>();
+        _moverManager = gameController.GetComponent<MoverManager>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -64,7 +65,7 @@ public class Mover : MonoBehaviour
         if (collision.tag == "Exit" && _mementoPickedUp)
         {
             _mementoManager.DestroyMemento(_claimedMemento);
-            Destroy(gameObject);
+            _moverManager.DestroyMover(this);
         }
     }
 }

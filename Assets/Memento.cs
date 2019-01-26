@@ -15,7 +15,6 @@ public class Memento : MonoBehaviour
 
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
-    private BoxCollider2D _boxCollider2D;
     private ParticleSystem _particleSystem;
     private Mover _carrier;
 
@@ -50,7 +49,6 @@ public class Memento : MonoBehaviour
     {
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
-        _boxCollider2D = GetComponent<BoxCollider2D>();
         _particleSystem = GetComponent<ParticleSystem>();
     }
 
