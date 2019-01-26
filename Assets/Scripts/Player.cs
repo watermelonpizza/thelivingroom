@@ -47,8 +47,8 @@ public class Player : MonoBehaviour
             var b = _boxCollider2D.bounds;
             var bottomLeft = _boxCollider2D.bounds.min;
             var topRight = _boxCollider2D.bounds.max;
-            var bottomRight = new Vector3(topRight.x, bottomLeft.y);
-            var topLeft = new Vector3(bottomLeft.x, topRight.y);
+            var bottomRight = new Vector3(topRight.x, bottomLeft.y, transform.position.z);
+            var topLeft = new Vector3(bottomLeft.x, topRight.y, transform.position.z);
 
 
             GameObject meshObject = new GameObject("mesh");

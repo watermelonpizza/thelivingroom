@@ -10,7 +10,7 @@ public class SpawnPointManager : MonoBehaviour
     public Vector3 GetRandomSpawnPoint()
     {
         var enabledSpawns = spawnPoints.Where(x => x.enabled).ToArray();
-        return enabledSpawns[Random.Range(0, spawnPoints.Length - 1)].spawnPoint.transform.position;
+        return enabledSpawns[Random.Range(0, spawnPoints.Length)].spawnPoint.transform.position;
     }
 
     [System.Serializable]

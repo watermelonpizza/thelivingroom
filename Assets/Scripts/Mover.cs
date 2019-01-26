@@ -6,7 +6,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Mover : MonoBehaviour
 {
-    private bool _mementoPickedUp = false;
     private Vector3 _destination = Vector3.negativeInfinity;
     private Memento _claimedMemento;
     private NavMeshAgent _navMeshAgent;
@@ -21,12 +20,11 @@ public class Mover : MonoBehaviour
 
     public void Spook()
     {
-        if (_mementoPickedUp)
+        if (_claimedMemento != null && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
             _claimedMemento.Drop();
             _mementoManager.ForfeitMemento(_claimedMemento);
             _claimedMemento = null;
-            _mementoPickedUp = false;
             _moverManager.DestroyMover(this);
         }
     }
@@ -51,21 +49,28 @@ public class Mover : MonoBehaviour
         {
             _navMeshAgent.SetDestination(_destination);
         }
-
-        if (!_mementoPickedUp && _claimedMemento != null && Vector2.Distance(transform.position, _claimedMemento.transform.position) <= _navMeshAgent.stoppingDistance)
-        {
-            _claimedMemento.PickUp(this);
-            _destination = _spawnPointManager.GetRandomSpawnPoint();
-            _mementoPickedUp = true;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Exit" && _mementoPickedUp)
+        if (_claimedMemento.mementoState != Memento.MementoState.PickedUp
+            && collision.gameObject == _claimedMemento.gameObject)
+        {
+        }
+
+
+        if (collision.tag == "Exit" && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
             _mementoManager.DestroyMemento(_claimedMemento);
             _moverManager.DestroyMover(this);
         }
+    }
+
+    private IEnumerator PickUpObject()
+    {
+        //yield return WaitForSeconds(settings);
+        _claimedMemento.PickUp(this);
+        _destination = _spawnPointManager.GetRandomSpawnPoint();
+        return null;
     }
 }
