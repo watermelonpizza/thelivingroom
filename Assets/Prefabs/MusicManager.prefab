@@ -644,18 +644,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1315382637499888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2fe29f12843524682ed173cb044301, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe760a59830b4e4eb5ddeec86bee673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHealth: {fileID: 82168830996736724}
-  highHealth: {fileID: 82737487684101034}
-  midHealth: {fileID: 82623694189967304}
-  lowHealth: {fileID: 82074264629942798}
-  criticalHealth: {fileID: 82403655471343100}
-  introTrack: {fileID: 8300000, guid: 78776e6060e7c824c90d805ad42e059a, type: 3}
-  fullHealthTrack: {fileID: 8300000, guid: 79f4f46afc6bbc44d8978bb0ff4a43cf, type: 3}
-  highHealthClip: {fileID: 8300000, guid: 641eb93f6271f5f4680e5bebddbf7874, type: 3}
-  midHealthClip: {fileID: 8300000, guid: c21d60a7e1792f94d9520244f592c781, type: 3}
-  lowHealthClip: {fileID: 8300000, guid: 97c532b6bb6c0f64281dc9eaa81492fa, type: 3}
-  criticalHealthClip: {fileID: 8300000, guid: 2c3d22ff6116cd94ca4fe38777d4ce70, type: 3}
+  fullHealth: {fileID: 0}
+  highHealth: {fileID: 0}
+  midHealth: {fileID: 0}
+  lowHealth: {fileID: 0}
+  criticalHealth: {fileID: 0}
+  introTrack: {fileID: 0}
+  fullHealthTrack: {fileID: 0}
+  highHealthClip: {fileID: 0}
+  midHealthClip: {fileID: 0}
+  lowHealthClip: {fileID: 0}
+  criticalHealthClip: {fileID: 0}
   feels: 100

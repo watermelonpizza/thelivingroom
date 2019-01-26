@@ -8,15 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb952161c698dc4e8dbfe743b147300, type: 3}
+  m_Script: {fileID: 11500000, guid: b38fdba374a925b4cbfa1635ab3c2784, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  waves:
-  - numberOfEnemies: 3
-    secondsBetweenEachSpawn: 2
-    spawnJitter: 0.5
-  - numberOfEnemies: 4
-    secondsBetweenEachSpawn: 1
-    spawnJitter: 0.5
-  timeBetweenWaves: 5
-  startingFeels: 10
+  waves: []
+  timeBetweenWaves: 0
+  startingFeels: 0

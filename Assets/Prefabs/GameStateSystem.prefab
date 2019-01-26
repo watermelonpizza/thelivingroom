@@ -52,11 +52,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240417550610566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad0480fc6db25b46b3ae073eda14dd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 75eecc7cbfb2ac243b1ccc6af1af4aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverPrefab: {fileID: 1411742036761612, guid: fc73f79f289ce694f8dafb8f7690d843,
-    type: 2}
+  moverPrefab: {fileID: 0}
 --- !u!114 &114511210994573002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,9 +64,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240417550610566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3f4bf7421a96d4e9ac09ded66c87f4, type: 3}
+  m_Script: {fileID: 11500000, guid: d3c54cf42411c8943a8b146d1e90f4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 0}
 --- !u!114 &114568835452723248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,10 +76,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240417550610566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dfe09292e7dd0440aad6ba1c871fc4e, type: 3}
+  m_Script: {fileID: 11500000, guid: b6d13b41449ae3e4893bbbd630787032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
+  gameSettings: {fileID: 0}
+  gameState: 0
+  currentWaveNumber: 0
+  currentWave:
+    numberOfEnemies: 1
+    secondsBetweenEachSpawn: 0
+    spawnJitter: 0
+  currentFeels: 0
 --- !u!114 &114578887239309522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,17 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240417550610566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfbf0670d9de0f47bb8c11ca101c1f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a6899472bdc63647bb19a0bc5c908f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
-  gameState: 0
-  currentWaveNumber: 0
-  currentWave:
-    numberOfEnemies: 1
-    secondsBetweenEachSpawn: 0
-    spawnJitter: 0
-  currentFeels: 0
 --- !u!114 &114597638729624826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,9 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240417550610566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0a76b518a91fa41a588f81349793e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9569f88de9083a248b01741284bac124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints:
-  - spawnPoint: {fileID: 0}
-    enabled: 1
+  spawnPoints: []
