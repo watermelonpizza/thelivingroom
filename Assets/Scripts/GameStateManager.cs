@@ -11,6 +11,8 @@ public class GameStateManager : MonoBehaviour
 
     public int currentFeels;
 
+
+
     public enum GameState
     {
         PreStart,

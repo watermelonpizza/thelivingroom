@@ -28,4 +28,4 @@ MonoBehaviour:
     secondsBetweenEachSpawn: 1.5
     spawnJitter: 0.5
   timeBetweenWaves: 5
-  startingFeels: 10
+  startingFeels: 100
