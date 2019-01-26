@@ -50,7 +50,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 69623a61e9b8cf5479baf9c07d1bb30e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2fe29f12843524682ed173cb044301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  loopTrack: {fileID: 8300000, guid: 97c532b6bb6c0f64281dc9eaa81492fa, type: 3}
+  introTrack: {fileID: 8300000, guid: 78776e6060e7c824c90d805ad42e059a, type: 3}
+  loopTrack: {fileID: 8300000, guid: 79f4f46afc6bbc44d8978bb0ff4a43cf, type: 3}
