@@ -44,6 +44,7 @@ public class Memento : MonoBehaviour
         mementoState = MementoState.Idle;
         transform.position = _originalPosition;
         transform.rotation = _originalRotation;
+        transform.localScale = _originalScale;
     }
 
     private void Start()
