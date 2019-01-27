@@ -11,6 +11,9 @@ public class MementoManager : MonoBehaviour
 
     private GameStateManager _gameStateManager;
 
+    private AudioSource audioSource;
+    public AudioClip[] objectTaken;
+
     public bool TryClaimMemento(out Memento memento)
     {
         memento = null;
@@ -43,6 +46,9 @@ public class MementoManager : MonoBehaviour
         _gameStateManager.currentFeels -= claimedMemento.theFeels;
         _claimableMementos.Remove(claimedMemento.gameObject);
         Destroy(claimedMemento.gameObject);
+
+        audioSource.PlayOneShot(objectTaken[Random.Range(0, objectTaken.Length)]);
+
     }
 
     private void Start()
@@ -50,5 +56,7 @@ public class MementoManager : MonoBehaviour
         _mementos = GameObject.FindGameObjectsWithTag("Memento");
         _claimableMementos.AddRange(_mementos);
         _gameStateManager = GetComponent<GameStateManager>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 }
