@@ -19897,6 +19897,11 @@ Prefab:
       propertyPath: spawnPoints.Array.data[1].spawnPoint
       value: 
       objectReference: {fileID: 2133595731}
+    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[1].enableOnWave
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 2}
   m_IsPrefabAsset: 0

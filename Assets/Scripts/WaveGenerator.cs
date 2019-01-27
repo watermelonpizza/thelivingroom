@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(GameStateManager))]
 [RequireComponent(typeof(MementoManager))]
 [RequireComponent(typeof(MoverManager))]
+[RequireComponent(typeof(SpawnPointManager))]
 public class WaveGenerator : MonoBehaviour
 {
     public GameSettings gameSettings;
@@ -12,6 +13,7 @@ public class WaveGenerator : MonoBehaviour
     private GameStateManager _gameStateManager;
     private MementoManager _mementoManager;
     private MoverManager _moverManager;
+    private SpawnPointManager _spawnPointManager;
     private Coroutine _runningWave;
 
     public AudioSource dogBark; //IN PROGRESS
@@ -24,6 +26,7 @@ public class WaveGenerator : MonoBehaviour
         _gameStateManager = GetComponent<GameStateManager>();
         _mementoManager = GetComponent<MementoManager>();
         _moverManager = GetComponent<MoverManager>();
+        _spawnPointManager = GetComponent<SpawnPointManager>();
 
         dogAnim = dogIndicator.GetComponent <Animator>();
     }
@@ -51,10 +54,13 @@ public class WaveGenerator : MonoBehaviour
     {
         dogAnim.SetTrigger("WaveSpawning");
 
-
         _gameStateManager.currentWaveNumber = Mathf.Clamp(_gameStateManager.currentWaveNumber + 1, 0, gameSettings.waves.Length);
-
         _gameStateManager.currentWave = gameSettings.waves[_gameStateManager.currentWaveNumber - 1].Clone();
+
+        foreach (var spawnPoint in _spawnPointManager.spawnPoints)
+        {
+            spawnPoint.enabled = spawnPoint.enableOnWave <= _gameStateManager.currentWaveNumber;
+        }
 
         while (_gameStateManager.currentWave.numberOfEnemies > 0)
         {
