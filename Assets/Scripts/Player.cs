@@ -166,11 +166,6 @@ public class Player : MonoBehaviour
         return Time.timeSinceLevelLoad - _lastFire > settings.cooldown;
     }
 
-    private void OnGUI()
-    {
-        GUI.TextArea(new Rect(0, 0, 200, 40), "Hoz: " + System.Math.Round(Input.GetAxis("Horizontal"), 3).ToString("#.###") + " ||| Vert: " + System.Math.Round(Input.GetAxis("Vertical"), 3).ToString("#.###") + " ||| Cooldown: " + CanFire());
-    }
-
     private IEnumerator MoveWhoosh(GameObject whoosh, Vector2 p1, Vector2 p2, float time)
     {
         var t = 0f;
