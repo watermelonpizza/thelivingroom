@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(ParticleSystem))]
 public class Memento : MonoBehaviour
 {
     [Range(0, 4)]
@@ -54,7 +54,7 @@ public class Memento : MonoBehaviour
         _originalRotation = transform.rotation;
         _originalScale = transform.localScale;
         _originalRoot = transform.parent;
-        _particleSystem = GetComponent<ParticleSystem>();
+        _particleSystem = GetComponentsInChildren<ParticleSystem>().First(x => x.name == "TeleportEffect");
     }
 
     private void Update()
