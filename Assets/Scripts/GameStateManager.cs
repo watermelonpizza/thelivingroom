@@ -32,6 +32,13 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.R))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("TitleScene");
+            return;
+        }
+
         if (gameState == GameState.EndScreen)
         {
             return;
