@@ -335,6 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190806478}
   - component: {fileID: 1190806477}
+  - component: {fileID: 1190806479}
   m_Layer: 0
   m_Name: Ghost_stop_front
   m_TagString: Untagged
@@ -374,8 +375,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -64592103
-  m_SortingLayer: 1
+  m_SortingLayerID: 1970827785
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b5ed26a5547fea1429e9456c8f00fa46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -395,12 +396,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190806476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.73, y: -0.09127733, z: 0}
+  m_LocalPosition: {x: 5.02, y: -0.09127733, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190806479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190806476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c984e445b5a50b42b5c3f85c4c98a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winSprite: {fileID: 21300000, guid: 28a9b93e9caa2474bb135dc3440a139e, type: 3}
+  loseSprite: {fileID: 21300000, guid: 5e90ea8927de835468ae0aab073bb088, type: 3}
 --- !u!1 &1485509024
 GameObject:
   m_ObjectHideFlags: 0

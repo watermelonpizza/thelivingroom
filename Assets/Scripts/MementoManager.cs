@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(GameStateManager))]
 public class MementoManager : MonoBehaviour
 {
-    private GameObject[] _mementos;
+    private List<GameObject> _mementos = new List<GameObject>();
     private readonly object _claimLock = new object();
     private List<GameObject> _claimableMementos = new List<GameObject>();
 
@@ -45,18 +46,26 @@ public class MementoManager : MonoBehaviour
     {
         _gameStateManager.currentFeels -= claimedMemento.theFeels;
         _claimableMementos.Remove(claimedMemento.gameObject);
+        _mementos.Remove(claimedMemento.gameObject);
         Destroy(claimedMemento.gameObject);
 
         audioSource.PlayOneShot(objectTaken[Random.Range(0, objectTaken.Length)]);
-
     }
 
     private void Start()
     {
-        _mementos = GameObject.FindGameObjectsWithTag("Memento");
+        _mementos = GameObject.FindGameObjectsWithTag("Memento").ToList();
         _claimableMementos.AddRange(_mementos);
         _gameStateManager = GetComponent<GameStateManager>();
 
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (_mementos.Count <= 0)
+        {
+            _gameStateManager.gameState = GameStateManager.GameState.GameOver;
+        }
     }
 }
