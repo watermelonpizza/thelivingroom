@@ -16,7 +16,8 @@ public class WaveGenerator : MonoBehaviour
     private SpawnPointManager _spawnPointManager;
     private Coroutine _runningWave;
 
-    public AudioSource dogBark; //IN PROGRESS
+    private AudioSource audioSource;
+    public AudioClip dogBark;
 
     public GameObject dogIndicator;
     Animator dogAnim;
@@ -29,6 +30,7 @@ public class WaveGenerator : MonoBehaviour
         _spawnPointManager = GetComponent<SpawnPointManager>();
 
         dogAnim = dogIndicator.GetComponent <Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +55,8 @@ public class WaveGenerator : MonoBehaviour
     private IEnumerator RunNextWave()
     {
         dogAnim.SetTrigger("WaveSpawning");
+        audioSource.clip = dogBark;
+        audioSource.Play();
 
         _gameStateManager.currentWaveNumber = Mathf.Clamp(_gameStateManager.currentWaveNumber + 1, 0, gameSettings.waves.Length);
         _gameStateManager.currentWave = gameSettings.waves[_gameStateManager.currentWaveNumber - 1].Clone();
