@@ -13,6 +13,8 @@ Scare the Movers while they are carrying your Mementos, and hover over dropped m
 
 **Outlast the Movers to win!**
 
+### Playable Demo
+https://thelivingroom.melonstudios.net/
 
 ### Controls
 ||Keyboard|Controller|
