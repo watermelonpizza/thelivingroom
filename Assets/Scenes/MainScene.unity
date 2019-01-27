@@ -19897,6 +19897,11 @@ Prefab:
       propertyPath: spawnPoints.Array.data[1].spawnPoint
       value: 
       objectReference: {fileID: 2133595731}
+    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[1].enableOnWave
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 2}
   m_IsPrefabAsset: 0
@@ -55295,7 +55300,7 @@ SpriteRenderer:
   m_SortingLayerID: -64592103
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9443bff8d479b0546bf2ca6dfe4914e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4217e4d3e3da9054b846436766527274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -55313,8 +55318,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2097631827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.541, y: 4.391, z: 0}
-  m_LocalScale: {x: 0.614, y: 0.33098438, z: 0.38375}
+  m_LocalPosition: {x: -1.541, y: 4.363, z: 0}
+  m_LocalScale: {x: 0.31887, y: 0.31887, z: 0.31887}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -55342,7 +55347,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2133595731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.13, y: 5.49, z: -0.11328125}
+  m_LocalPosition: {x: -2.13, y: 3.96, z: -0.11328125}
   m_LocalScale: {x: 2.3, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 658504311}
