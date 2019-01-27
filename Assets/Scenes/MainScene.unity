@@ -518,7 +518,9 @@ Prefab:
       propertyPath: m_Name
       value: BronzePainting (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199699834124893566, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
+    - {fileID: 198774411171836364, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &292939948 stripped
@@ -1008,7 +1010,7 @@ Transform:
   - {fileID: 686799412}
   - {fileID: 2133595732}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686799410
 GameObject:
@@ -1475,8 +1477,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 848301539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5829096, y: 3.131901, z: -2.8769531}
-  m_LocalScale: {x: 0.672, y: 0.14944258, z: 0.14944258}
+  m_LocalPosition: {x: 1.5829096, y: 3.1339, z: -2.8769531}
+  m_LocalScale: {x: 0.672, y: 0.14989091, z: 0.14944258}
   m_Children: []
   m_Father: {fileID: 518658230}
   m_RootOrder: 2
@@ -1504,8 +1506,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 884120323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.18, y: 3.131901, z: -2.8769531}
-  m_LocalScale: {x: 0.29000813, y: 0.14943999, z: 0.14943999}
+  m_LocalPosition: {x: -8.1838, y: 3.131901, z: -2.8769531}
+  m_LocalScale: {x: 0.29084915, y: 0.14943999, z: 0.14943999}
   m_Children: []
   m_Father: {fileID: 518658230}
   m_RootOrder: 4
@@ -1829,9 +1831,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4137477044677552, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199699834124893566, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
+    - {fileID: 198774411171836364, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: ddbc3ffe58766054a88303c2d5e6885f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1096208296
@@ -1871,9 +1875,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4795815118452038, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199208655226456532, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
+    - {fileID: 198764145449828034, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1200542780
@@ -1955,7 +1961,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4390197616897718, guid: 9d39a43fa9767484c87dc83a9ec97f80, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d39a43fa9767484c87dc83a9ec97f80, type: 2}
@@ -3638,7 +3644,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199208655226456532, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
+    - {fileID: 198764145449828034, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 599cbf16ed0ad9a409926d8a1101ff08, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2031423131
@@ -3827,8 +3835,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2097631827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.541, y: 4.363, z: 0}
-  m_LocalScale: {x: 0.31887, y: 0.31887, z: 0.31887}
+  m_LocalPosition: {x: -1.541, y: 4.3616, z: 0}
+  m_LocalScale: {x: 0.31887, y: 0.31578413, z: 0.31887}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
