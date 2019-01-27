@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayTime: 3
-  sceneName: TitleScreen
+  sceneName: TitleScene
 --- !u!4 &1485509026
 Transform:
   m_ObjectHideFlags: 0
