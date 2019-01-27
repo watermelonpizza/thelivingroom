@@ -8,7 +8,12 @@ public class PressAnyKey : MonoBehaviour
     private float delay = 0;
     public float delayTime = 3;
     public string sceneName;
+    AudioSource audioSource;
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -23,6 +28,11 @@ public class PressAnyKey : MonoBehaviour
             if (gameController != null)
             {
                 Destroy(gameController);
+            }
+
+            if (audioSource)
+            {
+                audioSource.Play();
             }
 
             SceneManager.LoadScene(sceneName);
