@@ -5174,7 +5174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 3
+  theFeels: 15
   mementoState: 0
 --- !u!61 &292939952
 BoxCollider2D:
@@ -9948,7 +9948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 3
+  theFeels: 15
   mementoState: 0
 --- !u!61 &333627634
 BoxCollider2D:
@@ -19613,7 +19613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 3
+  theFeels: 15
   mementoState: 0
 --- !u!61 &499121655
 BoxCollider2D:
@@ -34552,7 +34552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 2
+  theFeels: 10
   mementoState: 0
 --- !u!61 &1003708702
 BoxCollider2D:
@@ -44160,7 +44160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 5
+  theFeels: 30
   mementoState: 0
 --- !u!61 &1417961873
 BoxCollider2D:
@@ -54878,7 +54878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 1
   resetTime: 1
-  theFeels: 3
+  theFeels: 15
   mementoState: 0
 --- !u!61 &1993307783
 BoxCollider2D:
