@@ -9,6 +9,7 @@ public class GameSettings : ScriptableObject
     public Wave[] waves;
     public float timeBetweenWaves;
     public int startingFeels;
+    public string SceneName;
 
     [System.Serializable]
     public class Wave

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameStateManager : MonoBehaviour
     public GameSettings.Wave currentWave;
 
     public int currentFeels;
+    public GameSettings SceneName;
 
 
 
@@ -29,6 +31,9 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (gameState == GameState.GameOver || currentFeels <= 0)
+        {
+            SceneManager.LoadScene(gameSettings.SceneName);
+        }
     }
 }
