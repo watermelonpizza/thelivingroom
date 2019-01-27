@@ -17,12 +17,15 @@ public class Mover : MonoBehaviour
     private SpawnPointManager _spawnPointManager;
     private Animator _animator;
 
+    private AudioSource audioSource;     
+    public AudioClip[] spookedSounds;
+
     public void TargetMemento(Memento memento)
     {
         _claimedMemento = memento;
     }
 
-    public void Spook()
+    public bool Spook()
     {
         if (_claimedMemento != null && _claimedMemento.mementoState == Memento.MementoState.PickedUp)
         {
@@ -32,9 +35,14 @@ public class Mover : MonoBehaviour
             _mementoManager.ForfeitMemento(_claimedMemento);
             _claimedMemento = null;
 
+            audioSource.PlayOneShot(spookedSounds[Random.Range(0, spookedSounds.Length)]);
+
             _destination = _spawnPointManager.GetRandomSpawnPoint();
             _navMeshAgent.speed = settings.scaredSpeed;
+            return true;
         }
+
+        return false;
     }
 
     private void Start()
@@ -47,6 +55,8 @@ public class Mover : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
 
         _navMeshAgent.speed = settings.walkingSpeed;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

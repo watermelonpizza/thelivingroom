@@ -70,19 +70,19 @@ public class MusicManager : MonoBehaviour
        //     criticalHealth.loop = isActiveAndEnabled;
         }
 
-        if (_gameStateManager.currentFeels <100 && _gameStateManager.currentFeels >=76)
+        if (_gameStateManager.currentFeels <100 && _gameStateManager.currentFeels >=67)
         {
             HighHealth();
             // high health
         }
 
-        if (_gameStateManager.currentFeels <=75 && _gameStateManager.currentFeels >= 51)
+        if (_gameStateManager.currentFeels <=66 && _gameStateManager.currentFeels >= 34)
         {
             // mid health
             MidHealth();
         }
 
-        if (_gameStateManager.currentFeels <=50 && _gameStateManager.currentFeels >=26)
+        if (_gameStateManager.currentFeels <=33 && _gameStateManager.currentFeels >=0)
         {
             //low health
             LowHealth();
