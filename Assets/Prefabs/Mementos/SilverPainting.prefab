@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeTeleport: 0.5
   resetTime: 1
-  theFeels: 3
+  theFeels: 30
   mementoState: 0
   teleportEffect: {fileID: 1349151759886472, guid: 3bf1a3d08b475164bbb7388b01bb5c88,
     type: 2}
