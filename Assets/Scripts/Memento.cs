@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(ParticleSystem))]
 public class Memento : MonoBehaviour
 {
     [Range(0, 4)]
@@ -12,6 +12,8 @@ public class Memento : MonoBehaviour
     public float resetTime = 1;
     public int theFeels;
     public MementoState mementoState;
+
+    public GameObject teleportEffect;
 
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
@@ -54,7 +56,7 @@ public class Memento : MonoBehaviour
         _originalRotation = transform.rotation;
         _originalScale = transform.localScale;
         _originalRoot = transform.parent;
-        _particleSystem = GetComponent<ParticleSystem>();
+        //_particleSystem = GetComponentsInChildren<ParticleSystem>().First(x => x.name == "TeleportEffect");
     }
 
     private void Update()
@@ -75,8 +77,6 @@ public class Memento : MonoBehaviour
                 case MementoState.Idle:
                     break;
                 case MementoState.PickedUp:
-                    //_triggered = true;
-                    //Drop();
                     break;
                 case MementoState.Dropped:
                     _triggered = true;
@@ -90,10 +90,10 @@ public class Memento : MonoBehaviour
 
     private IEnumerator PlayParticalsAndReset()
     {
-        _particleSystem.Play();
+        Destroy(Instantiate(teleportEffect, transform), 4);
         yield return new WaitForSeconds(timeBeforeTeleport);
         ResetPosition();
-        _particleSystem.Play();
+        Destroy(Instantiate(teleportEffect, transform), 4);
 
         _triggered = false;
     }
