@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public GameObject playerWhooshEffect;
     public GameObject playerAttackPrefab;
 
+    private AudioSource playerAttack;
+    public AudioClip[] playerAttackSounds;
+
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
@@ -28,6 +31,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+
+        playerAttack = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -45,6 +50,10 @@ public class Player : MonoBehaviour
         {
             _animator.SetTrigger("Attack");
             _lastFire = Time.timeSinceLevelLoad;
+
+            playerAttack.PlayOneShot(playerAttackSounds[Random.Range(0, playerAttackSounds.Length)]);
+
+            
 
             var b = _boxCollider2D.bounds;
             var bottomLeft = _boxCollider2D.bounds.min;
