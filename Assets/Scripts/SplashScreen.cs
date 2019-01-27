@@ -23,7 +23,6 @@ public class SplashScreen : MonoBehaviour
         if (delay < loadTime)
         {
             delay += Time.deltaTime;
-            Debug.Log(delay);
         }
         else
         {
