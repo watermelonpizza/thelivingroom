@@ -10,6 +10,7 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     public PlayerSettings settings;
+    public GameObject playerWhooshEffect;
     public GameObject playerAttackPrefab;
 
     private Animator _animator;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
             var whooshAttack = Instantiate(playerAttackPrefab);
             var mesh = new Mesh();
 
-            whooshAttack.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
+            whooshAttack.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Transparent/Diffuse"));
             whooshAttack.AddComponent<MeshFilter>().sharedMesh = mesh;
 
             mesh.Clear();
@@ -70,6 +71,12 @@ public class Player : MonoBehaviour
                     topTopRight,
                     topRight
                 };
+
+                var topMiddle = topLeft + ((topRight - topLeft) / 2);
+                var topTopMiddle = topTopLeft + ((topTopRight - topTopLeft) / 2);
+
+                var whoosh = Instantiate(playerWhooshEffect, topMiddle, Quaternion.identity);
+                StartCoroutine(MoveWhoosh(whoosh, topMiddle, topTopMiddle, .3f));
             }
             else if (_lastDirection == Vector2.left)
             {
@@ -83,6 +90,12 @@ public class Player : MonoBehaviour
                     topLeftLeft,
                     topLeft
                 };
+
+                var leftMiddle = bottomLeft + ((topLeft - bottomLeft) / 2);
+                var leftLeftMiddle = bottomLeftLeft + ((topLeftLeft - bottomLeftLeft) / 2);
+
+                var whoosh = Instantiate(playerWhooshEffect, leftMiddle, Quaternion.identity);
+                StartCoroutine(MoveWhoosh(whoosh, leftMiddle, leftLeftMiddle, .3f));
             }
             else if (_lastDirection == Vector2.right)
             {
@@ -96,6 +109,12 @@ public class Player : MonoBehaviour
                     bottomRightRight,
                     bottomRight
                 };
+
+                var rightMiddle = bottomRight + ((topRight - bottomRight) / 2);
+                var rightRightMiddle = bottomRightRight + ((topRightRight - bottomRightRight) / 2);
+
+                var whoosh = Instantiate(playerWhooshEffect, rightMiddle, Quaternion.identity);
+                StartCoroutine(MoveWhoosh(whoosh, rightMiddle, rightRightMiddle, .3f));
             }
             else if (_lastDirection == Vector2.down)
             {
@@ -109,6 +128,12 @@ public class Player : MonoBehaviour
                     bottomBottomLeft,
                     bottomLeft
                 };
+
+                var bottomMiddle = bottomLeft + ((bottomRight - bottomLeft) / 2);
+                var bottomBottomMiddle = bottomBottomLeft + ((bottomBottomRight - bottomBottomLeft) / 2);
+
+                var whoosh = Instantiate(playerWhooshEffect, bottomMiddle, Quaternion.identity);
+                StartCoroutine(MoveWhoosh(whoosh, bottomMiddle, bottomBottomMiddle, .3f));
             }
 
             mesh.triangles = new int[] { 0, 1, 3, 3, 1, 2 };
@@ -135,6 +160,20 @@ public class Player : MonoBehaviour
     private void OnGUI()
     {
         GUI.TextArea(new Rect(0, 0, 200, 40), "Hoz: " + System.Math.Round(Input.GetAxis("Horizontal"), 3).ToString("#.###") + " ||| Vert: " + System.Math.Round(Input.GetAxis("Vertical"), 3).ToString("#.###") + " ||| Cooldown: " + CanFire());
+    }
+
+    private IEnumerator MoveWhoosh(GameObject whoosh, Vector2 p1, Vector2 p2, float time)
+    {
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / time;
+            whoosh.transform.position = Vector2.Lerp(p1, p2, Mathf.SmoothStep(0, 1, t));
+            yield return new WaitForEndOfFrame();
+        }
+
+        whoosh.GetComponent<ParticleSystem>().Stop();
+        Destroy(whoosh, 4);
     }
 
     private Vector2 GetDirection(Vector2 v)
