@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerSettings settings;
     public GameObject playerWhooshEffect;
     public GameObject playerAttackPrefab;
+    public Material transparentMaterial;
 
     private AudioSource playerAttack;
     public AudioClip[] playerAttackSounds;
@@ -19,7 +20,6 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
-    private Vector2 _lastMovement = Vector2.down;
     private Vector2 _lastDirection = Vector2.down;
     private float _lastFire = 0;
 
@@ -53,8 +53,6 @@ public class Player : MonoBehaviour
 
             playerAttack.PlayOneShot(playerAttackSounds[Random.Range(0, playerAttackSounds.Length)]);
 
-            
-
             var b = _boxCollider2D.bounds;
             var bottomLeft = _boxCollider2D.bounds.min;
             var topRight = _boxCollider2D.bounds.max;
@@ -64,7 +62,7 @@ public class Player : MonoBehaviour
             var whooshAttack = Instantiate(playerAttackPrefab);
             var mesh = new Mesh();
 
-            whooshAttack.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Transparent/Diffuse"));
+            whooshAttack.AddComponent<MeshRenderer>().sharedMaterial = transparentMaterial;
             whooshAttack.AddComponent<MeshFilter>().sharedMesh = mesh;
 
             mesh.Clear();
@@ -157,18 +155,12 @@ public class Player : MonoBehaviour
         if (movement != Vector2.zero)
         {
             _lastDirection = direction;
-            _lastMovement = movement;
         }
     }
 
     private bool CanFire()
     {
         return Time.timeSinceLevelLoad - _lastFire > settings.cooldown;
-    }
-
-    private void OnGUI()
-    {
-        GUI.TextArea(new Rect(0, 0, 200, 40), "Hoz: " + System.Math.Round(Input.GetAxis("Horizontal"), 3).ToString("#.###") + " ||| Vert: " + System.Math.Round(Input.GetAxis("Vertical"), 3).ToString("#.###") + " ||| Cooldown: " + CanFire());
     }
 
     private IEnumerator MoveWhoosh(GameObject whoosh, Vector2 p1, Vector2 p2, float time)
