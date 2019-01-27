@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Player Settings
   m_EditorClassIdentifier: 
   speed: 2
-  range: 5
-  cooldown: 0.5
+  range: 1.75
+  cooldown: 1.65
