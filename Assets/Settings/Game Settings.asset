@@ -29,3 +29,4 @@ MonoBehaviour:
     spawnJitter: 0.5
   timeBetweenWaves: 5
   startingFeels: 100
+  SceneName: EndScene
