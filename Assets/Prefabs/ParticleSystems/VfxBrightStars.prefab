@@ -209,7 +209,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.8156863, g: 0.7921569, b: 0.4627451, a: 1}
+      maxColor: {r: 0.8584906, g: 0.82906437, b: 0.41709685, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.7294118, g: 0.70980394, b: 0.48235294, a: 1}
@@ -798,8 +798,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 50
-        minScalar: 40
+        scalar: 60
+        minScalar: 50
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -2358,7 +2358,7 @@ ParticleSystem:
     inWorldSpace: 1
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0.95
+    dampen: 0.65
     drag:
       serializedVersion: 2
       minMaxState: 0
