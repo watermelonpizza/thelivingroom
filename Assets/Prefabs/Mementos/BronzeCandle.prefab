@@ -9,21 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1174743685944234}
+  m_RootGameObject: {fileID: 1217098468135108}
   m_IsPrefabAsset: 1
---- !u!1 &1174743685944234
+--- !u!1 &1217098468135108
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4321393910286918}
-  - component: {fileID: 212111284033905518}
-  - component: {fileID: 61722323541708558}
-  - component: {fileID: 114519215202078696}
-  - component: {fileID: 198136833315264068}
-  - component: {fileID: 199408730938427420}
+  - component: {fileID: 4795815118452038}
+  - component: {fileID: 212604820631750592}
+  - component: {fileID: 61084806695374720}
+  - component: {fileID: 114994663534397424}
+  - component: {fileID: 198764145449828034}
+  - component: {fileID: 199208655226456532}
   m_Layer: 0
   m_Name: BronzeCandle
   m_TagString: Memento
@@ -31,16 +31,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1380118674804540
+--- !u!1 &1837977774956056
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4272545941609720}
-  - component: {fileID: 198584541960796592}
-  - component: {fileID: 199719072151456700}
+  - component: {fileID: 4674227438133738}
+  - component: {fileID: 198853389829314322}
+  - component: {fileID: 199578111308565540}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -48,39 +48,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4272545941609720
+--- !u!4 &4674227438133738
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380118674804540}
+  m_GameObject: {fileID: 1837977774956056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.985496, y: 0.985496, z: 0.985496}
   m_Children: []
-  m_Father: {fileID: 4321393910286918}
+  m_Father: {fileID: 4795815118452038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4321393910286918
+--- !u!4 &4795815118452038
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.39, y: 4.33, z: 0}
   m_LocalScale: {x: 0.19781916, y: 0.19781916, z: 0.19781916}
   m_Children:
-  - {fileID: 4272545941609720}
+  - {fileID: 4674227438133738}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61722323541708558
+--- !u!61 &61084806695374720
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -100,27 +100,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.3008995, y: 4.3008976}
   m_EdgeRadius: 0
---- !u!114 &114519215202078696
+--- !u!114 &114994663534397424
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1186ffd692e24bb4790d12a5312474fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTeleport: 1
+  timeBeforeTeleport: 0.5
   resetTime: 1
-  theFeels: 10
+  theFeels: 2
   mementoState: 0
---- !u!198 &198136833315264068
+  teleportEffect: {fileID: 1349151759886472, guid: 3bf1a3d08b475164bbb7388b01bb5c88,
+    type: 2}
+--- !u!198 &198764145449828034
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   serializedVersion: 5
   lengthInSec: 0.28
   simulationSpeed: 1
@@ -4705,12 +4707,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!198 &198584541960796592
+--- !u!198 &198853389829314322
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380118674804540}
+  m_GameObject: {fileID: 1837977774956056}
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
@@ -9247,13 +9249,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199408730938427420
+--- !u!199 &199208655226456532
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -9304,13 +9306,13 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!199 &199719072151456700
+--- !u!199 &199578111308565540
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380118674804540}
+  m_GameObject: {fileID: 1837977774956056}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -9361,12 +9363,12 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!212 &212111284033905518
+--- !u!212 &212604820631750592
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174743685944234}
+  m_GameObject: {fileID: 1217098468135108}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

@@ -13,6 +13,8 @@ public class Memento : MonoBehaviour
     public int theFeels;
     public MementoState mementoState;
 
+    public GameObject teleportEffect;
+
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private Vector3 _originalScale;
@@ -54,7 +56,7 @@ public class Memento : MonoBehaviour
         _originalRotation = transform.rotation;
         _originalScale = transform.localScale;
         _originalRoot = transform.parent;
-        _particleSystem = GetComponentsInChildren<ParticleSystem>().First(x => x.name == "TeleportEffect");
+        //_particleSystem = GetComponentsInChildren<ParticleSystem>().First(x => x.name == "TeleportEffect");
     }
 
     private void Update()
@@ -75,8 +77,6 @@ public class Memento : MonoBehaviour
                 case MementoState.Idle:
                     break;
                 case MementoState.PickedUp:
-                    //_triggered = true;
-                    //Drop();
                     break;
                 case MementoState.Dropped:
                     _triggered = true;
@@ -90,10 +90,10 @@ public class Memento : MonoBehaviour
 
     private IEnumerator PlayParticalsAndReset()
     {
-        _particleSystem.Play();
+        Destroy(Instantiate(teleportEffect, transform), 4);
         yield return new WaitForSeconds(timeBeforeTeleport);
         ResetPosition();
-        _particleSystem.Play();
+        Destroy(Instantiate(teleportEffect, transform), 4);
 
         _triggered = false;
     }

@@ -14,7 +14,7 @@ public class MomentoEditor : Editor
 
             if (check.changed)
             {
-                Debug.Log("changed");
+                //Debug.Log("changed");
             }
         }
     }
