@@ -27,6 +27,6 @@ MonoBehaviour:
   - numberOfEnemies: 8
     secondsBetweenEachSpawn: 1.5
     spawnJitter: 0.5
-  timeBetweenWaves: 5
+  timeBetweenWaves: 8
   startingFeels: 100
   SceneName: EndScene
