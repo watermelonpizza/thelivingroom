@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,11 +12,16 @@ public class GameStateManager : MonoBehaviour
     public int currentFeels;
     public GameSettings SceneName;
 
+    public Canvas pauseCanvas;
+
+    private bool _pausedToggled = false;
+
     public enum GameState
     {
         PreStart,
         Menu,
         Running,
+        Paused,
         GameOver,
         EndScreen,
     }
@@ -42,6 +45,31 @@ public class GameStateManager : MonoBehaviour
         if (gameState == GameState.EndScreen)
         {
             return;
+        }
+
+        if (Input.GetAxisRaw("Cancel") > 0)
+        {
+            if (!_pausedToggled)
+            {
+                if (gameState == GameState.Running)
+                {
+                    pauseCanvas.gameObject.SetActive(true);
+                    gameState = GameState.Paused;
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    pauseCanvas.gameObject.SetActive(false);
+                    gameState = GameState.Running;
+                    Time.timeScale = 1;
+                }
+
+                _pausedToggled = true;
+            }
+        }
+        else
+        {
+            _pausedToggled = false;
         }
 
         if (currentFeels <= 0)

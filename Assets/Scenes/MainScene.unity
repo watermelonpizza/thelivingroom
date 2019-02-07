@@ -951,6 +951,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1240417550610566, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
+      propertyPath: m_Name
+      value: GameStateSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -983,6 +987,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114511210994573002, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 3}
       propertyPath: dogIndicator
@@ -998,11 +1014,6 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[1].spawnPoint
       value: 
       objectReference: {fileID: 2133595731}
-    - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[1].enableOnWave
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
 --- !u!1001 &573604528
