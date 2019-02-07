@@ -8484,6 +8484,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4521035765992154, guid: 48ed687936c5b924f98a6a629a2d6ec1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2152403
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521035765992154, guid: 48ed687936c5b924f98a6a629a2d6ec1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2152403
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521035765992154, guid: 48ed687936c5b924f98a6a629a2d6ec1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2152403
+      objectReference: {fileID: 0}
     - target: {fileID: 198859479593448184, guid: 48ed687936c5b924f98a6a629a2d6ec1,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
@@ -8588,6 +8600,16 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 61348986014470042, guid: 48ed687936c5b924f98a6a629a2d6ec1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 61348986014470042, guid: 48ed687936c5b924f98a6a629a2d6ec1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 9.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ed687936c5b924f98a6a629a2d6ec1, type: 3}
