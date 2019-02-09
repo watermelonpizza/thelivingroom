@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GameStateManager))]
@@ -20,7 +19,7 @@ public class WaveGenerator : MonoBehaviour
     public AudioClip dogBark;
 
     public GameObject dogIndicator;
-    Animator dogAnim;
+    private Animator dogAnim;
 
     private void Start()
     {
@@ -29,13 +28,14 @@ public class WaveGenerator : MonoBehaviour
         _moverManager = GetComponent<MoverManager>();
         _spawnPointManager = GetComponent<SpawnPointManager>();
 
-        dogAnim = dogIndicator.GetComponent <Animator>();
+        dogAnim = dogIndicator.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (_gameStateManager.gameState != GameStateManager.GameState.Running)
+        if (_gameStateManager.gameState != GameStateManager.GameState.Running
+            && _gameStateManager.gameState != GameStateManager.GameState.Paused)
         {
             if (_runningWave != null)
             {
@@ -89,7 +89,6 @@ public class WaveGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(gameSettings.timeBetweenWaves);
             _runningWave = null;
-
         }
     }
 }
