@@ -15,6 +15,11 @@ public class Memento : MonoBehaviour
 
     public GameObject teleportEffect;
 
+    public AudioClip teleport1;
+    public AudioClip teleport2;
+    private AudioSource audioSource;
+
+
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private Vector3 _originalScale;
@@ -23,6 +28,7 @@ public class Memento : MonoBehaviour
     private Mover _carrier;
 
     private bool _triggered = false;
+
 
     public void PickUp(Mover mover)
     {
@@ -56,6 +62,7 @@ public class Memento : MonoBehaviour
         _originalRotation = transform.rotation;
         _originalScale = transform.localScale;
         _originalRoot = transform.parent;
+        audioSource = GetComponent<AudioSource>();
         //_particleSystem = GetComponentsInChildren<ParticleSystem>().First(x => x.name == "TeleportEffect");
     }
 
@@ -91,9 +98,14 @@ public class Memento : MonoBehaviour
     private IEnumerator PlayParticalsAndReset()
     {
         Destroy(Instantiate(teleportEffect, transform), 4);
+        audioSource.clip = teleport1;
+        audioSource.Play();
+
         yield return new WaitForSeconds(timeBeforeTeleport);
         ResetPosition();
         Destroy(Instantiate(teleportEffect, transform), 4);
+        audioSource.clip = teleport2;
+        audioSource.Play();
 
         _triggered = false;
     }
