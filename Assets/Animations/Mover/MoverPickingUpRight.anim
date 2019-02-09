@@ -4,7 +4,8 @@
 AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: MoverPickingUpRight
   serializedVersion: 6
   m_Legacy: 0
@@ -19,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 2ce3cd1a039f37844b919048840fcf71, type: 3}
+      value: {fileID: 21300000, guid: 0f23bf7477ecff84c93bdd6c93799365, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: f8b933da284aa0243aad807c02a6d521, type: 3}
+      value: {fileID: 21300000, guid: 016b49e936836cc4d87f0f710abc4d65, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -41,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 2ce3cd1a039f37844b919048840fcf71, type: 3}
-    - {fileID: 21300000, guid: f8b933da284aa0243aad807c02a6d521, type: 3}
+    - {fileID: 21300000, guid: 0f23bf7477ecff84c93bdd6c93799365, type: 3}
+    - {fileID: 21300000, guid: 016b49e936836cc4d87f0f710abc4d65, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -67,5 +68,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_GenerateMotionCurves: 0
   m_Events: []
