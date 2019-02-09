@@ -13,4 +13,7 @@ public class PlayerSettings : ScriptableObject
 
     [Range(.1f, 10)]
     public float cooldown;
+
+    [Range(0, 10)]
+    public float fireFreezeTime;
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   speed: 3
   range: 1.75
   cooldown: 1.4
+  fireFreezeTime: 0.75
