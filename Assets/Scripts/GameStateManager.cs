@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class GameStateManager : MonoBehaviour
     public GameState gameState;
     public int currentWaveNumber;
     public GameSettings.Wave currentWave;
+    public GameObject endMessageObject;
 
     public int currentFeels;
     public GameSettings SceneName;
@@ -86,7 +88,25 @@ public class GameStateManager : MonoBehaviour
                 Destroy(otherManager);
             }
 
-            SceneManager.LoadScene(gameSettings.SceneName);
+            StartCoroutine(PlayVictoryDefeatScreen());
         }
+    }
+
+    private IEnumerator PlayVictoryDefeatScreen()
+    {
+        Animator animator = endMessageObject.GetComponent<Animator>();
+
+        if (currentFeels > 0)
+        {
+            animator.SetTrigger("Victory");
+        }
+        else
+        {
+            animator.SetTrigger("Defeat");
+        }
+
+        yield return new WaitForSeconds(5);
+
+        SceneManager.LoadScene(gameSettings.SceneName);
     }
 }
