@@ -21,6 +21,10 @@ public class WaveGenerator : MonoBehaviour
     public GameObject dogIndicator;
     private Animator dogAnim;
 
+    public GameObject windowObject;
+    private Animator windowAnim;
+
+
     private void Start()
     {
         _gameStateManager = GetComponent<GameStateManager>();
@@ -30,6 +34,10 @@ public class WaveGenerator : MonoBehaviour
 
         dogAnim = dogIndicator.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        windowAnim = windowObject.GetComponent<Animator>();
+
+
     }
 
     private void Update()
@@ -65,6 +73,13 @@ public class WaveGenerator : MonoBehaviour
         {
             spawnPoint.enabled = spawnPoint.enableOnWave <= _gameStateManager.currentWaveNumber;
         }
+
+        if (_gameStateManager.currentWaveNumber ==  _gameStateManager.windowSmashWave)
+            {
+                windowAnim.SetTrigger("windowBreak");
+            }
+
+
 
         while (_gameStateManager.currentWave.numberOfEnemies > 0)
         {

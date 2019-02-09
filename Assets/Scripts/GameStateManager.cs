@@ -14,6 +14,8 @@ public class GameStateManager : MonoBehaviour
     public int currentFeels;
     public GameSettings SceneName;
 
+    public int windowSmashWave;
+
     public Canvas pauseCanvas;
 
     private bool _pausedToggled = false;
