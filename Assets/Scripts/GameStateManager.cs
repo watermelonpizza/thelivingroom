@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class GameStateManager : MonoBehaviour
     public Canvas pauseCanvas;
 
     private bool _pausedToggled = false;
+
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unpaused;
 
     public enum GameState
     {
@@ -66,12 +70,15 @@ public class GameStateManager : MonoBehaviour
                     pauseCanvas.gameObject.SetActive(true);
                     gameState = GameState.Paused;
                     Time.timeScale = 0;
+                    paused.TransitionTo(.01f);
+                    
                 }
                 else
                 {
                     pauseCanvas.gameObject.SetActive(false);
                     gameState = GameState.Running;
                     Time.timeScale = 1;
+                    unpaused.TransitionTo(0.1f);
                 }
 
                 _pausedToggled = true;
