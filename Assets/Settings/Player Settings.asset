@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   range: 1.75
-  cooldown: 1.4
+  cooldown: 1
   fireFreezeTime: 0.75
