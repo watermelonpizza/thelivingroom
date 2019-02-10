@@ -6707,6 +6707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameStateSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 7312998947706718086, guid: 9b8c4e487d030f6448a3e85530e68a4a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4976439401046856, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6832,11 +6837,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7312998947706718086, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
