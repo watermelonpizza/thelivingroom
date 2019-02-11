@@ -56,8 +56,10 @@ MonoBehaviour:
     numberOfEnemies: 1
     secondsBetweenEachSpawn: 0
     spawnJitter: 0
+  endMessageObject: {fileID: 0}
   currentFeels: 0
   SceneName: {fileID: 0}
+  windowSmashWave: 2
   pauseCanvas: {fileID: 430545274066727653}
 --- !u!114 &114511210994573002
 MonoBehaviour:
@@ -72,8 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: c51b41f0862953b4e9a79cc26b9a0681, type: 2}
-  dogBark: {fileID: 8300000, guid: 564d3cc677d7a18449f3a3fba8f56dae, type: 3}
   dogIndicator: {fileID: 0}
+  dogBark: {fileID: 8300000, guid: 564d3cc677d7a18449f3a3fba8f56dae, type: 3}
+  windowObject: {fileID: 0}
+  secondsToBreakWindow: 2.8
 --- !u!114 &114578887239309522
 MonoBehaviour:
   m_ObjectHideFlags: 0

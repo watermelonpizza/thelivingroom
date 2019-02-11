@@ -8,21 +8,21 @@ using UnityEngine;
 public class WaveGenerator : MonoBehaviour
 {
     public GameSettings gameSettings;
+    public GameObject dogIndicator;
+    public AudioClip dogBark;
+    public GameObject windowObject;
+
+    [Range(0, 10)]
+    public float secondsToBreakWindow = 3;
 
     private GameStateManager _gameStateManager;
     private MementoManager _mementoManager;
     private MoverManager _moverManager;
     private SpawnPointManager _spawnPointManager;
     private Coroutine _runningWave;
-
-    private AudioSource audioSource;
-    public AudioClip dogBark;
-
-    public GameObject dogIndicator;
-    private Animator dogAnim;
-
-    public GameObject windowObject;
-    private Animator windowAnim;
+    private AudioSource _audioSource;
+    private Animator _dogAnimation;
+    private Animator _windowAnimation;
 
 
     private void Start()
@@ -32,12 +32,10 @@ public class WaveGenerator : MonoBehaviour
         _moverManager = GetComponent<MoverManager>();
         _spawnPointManager = GetComponent<SpawnPointManager>();
 
-        dogAnim = dogIndicator.GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        _dogAnimation = dogIndicator.GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
-        windowAnim = windowObject.GetComponent<Animator>();
-
-
+        _windowAnimation = windowObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -62,9 +60,9 @@ public class WaveGenerator : MonoBehaviour
 
     private IEnumerator RunNextWave()
     {
-        dogAnim.SetTrigger("WaveSpawning");
-        audioSource.clip = dogBark;
-        audioSource.Play();
+        _dogAnimation.SetTrigger("WaveSpawning");
+        _audioSource.clip = dogBark;
+        _audioSource.Play();
 
         _gameStateManager.currentWaveNumber = Mathf.Clamp(_gameStateManager.currentWaveNumber + 1, 0, gameSettings.waves.Length);
         _gameStateManager.currentWave = gameSettings.waves[_gameStateManager.currentWaveNumber - 1].Clone();
@@ -74,12 +72,11 @@ public class WaveGenerator : MonoBehaviour
             spawnPoint.enabled = spawnPoint.enableOnWave <= _gameStateManager.currentWaveNumber;
         }
 
-        if (_gameStateManager.currentWaveNumber ==  _gameStateManager.windowSmashWave)
-            {
-                windowAnim.SetTrigger("windowBreak");
-            }
-
-
+        if (_gameStateManager.currentWaveNumber == _gameStateManager.windowSmashWave)
+        {
+            _windowAnimation.SetTrigger("windowBreak");
+            yield return new WaitForSeconds(secondsToBreakWindow);
+        }
 
         while (_gameStateManager.currentWave.numberOfEnemies > 0)
         {
