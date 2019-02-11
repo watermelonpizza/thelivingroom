@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - Mover
   - Wall
+  - MusicManager
   layers:
   - Default
   - TransparentFX

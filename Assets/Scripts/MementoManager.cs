@@ -50,6 +50,7 @@ public class MementoManager : MonoBehaviour
         Destroy(claimedMemento.gameObject);
 
         audioSource.PlayOneShot(objectTaken[Random.Range(0, objectTaken.Length)]);
+        _gameStateManager.itemStolen = true;
     }
 
     private void Start()

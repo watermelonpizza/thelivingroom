@@ -2,6 +2,8 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -14,11 +16,19 @@ public class GameStateManager : MonoBehaviour
     public int currentFeels;
     public GameSettings SceneName;
 
+    public Image stolenFlash;
+    public bool itemStolen;
+    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+    public float flashSpeed = 5f;
+
     public int windowSmashWave;
 
     public Canvas pauseCanvas;
 
     private bool _pausedToggled = false;
+
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unpaused;
 
     public enum GameState
     {
@@ -60,12 +70,15 @@ public class GameStateManager : MonoBehaviour
                     pauseCanvas.gameObject.SetActive(true);
                     gameState = GameState.Paused;
                     Time.timeScale = 0;
+                    paused.TransitionTo(.01f);
+                    
                 }
                 else
                 {
                     pauseCanvas.gameObject.SetActive(false);
                     gameState = GameState.Running;
                     Time.timeScale = 1;
+                    unpaused.TransitionTo(0.1f);
                 }
 
                 _pausedToggled = true;
@@ -92,6 +105,19 @@ public class GameStateManager : MonoBehaviour
 
             StartCoroutine(PlayVictoryDefeatScreen());
         }
+
+
+        //flash the screen when an item is stolen
+        if (itemStolen)
+            {
+             stolenFlash.color = flashColour;
+            }
+        else
+            {
+                stolenFlash.color = Color.Lerp(stolenFlash.color, Color.clear, flashSpeed * Time.deltaTime);   
+            }
+        itemStolen = false;
+        
     }
 
     private IEnumerator PlayVictoryDefeatScreen()
