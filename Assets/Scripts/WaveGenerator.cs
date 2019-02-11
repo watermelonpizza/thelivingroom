@@ -78,16 +78,16 @@ public class WaveGenerator : MonoBehaviour
 
         _waveIndicatorAnimator.SetInteger("WaveNumber", _gameStateManager.currentWaveNumber);
 
+        _dogAnimation.SetTrigger("WaveSpawning");
+
+        _audioSource.clip = dogBark;
+        _audioSource.Play();
+
         yield return new WaitForSeconds(secondsWaveIndicatorTakes);
 
         _waveIndicatorAnimator.SetInteger("WaveNumber", 0);
 
         yield return new WaitForSeconds(secondsBetweenWaveIndicatorAndStart);
-
-        _dogAnimation.SetTrigger("WaveSpawning");
-
-        _audioSource.clip = dogBark;
-        _audioSource.Play();
 
         foreach (var spawnPoint in _spawnPointManager.spawnPoints)
         {

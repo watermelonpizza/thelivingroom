@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -25,10 +25,11 @@ public class GameStateManager : MonoBehaviour
 
     public Canvas pauseCanvas;
 
-    private bool _pausedToggled = false;
-
     public AudioMixerSnapshot paused;
     public AudioMixerSnapshot unpaused;
+
+    private bool _pausedToggled = false;
+    private Coroutine _flashRoutine;
 
     public enum GameState
     {
@@ -71,7 +72,7 @@ public class GameStateManager : MonoBehaviour
                     gameState = GameState.Paused;
                     Time.timeScale = 0;
                     paused.TransitionTo(.01f);
-                    
+
                 }
                 else
                 {
@@ -106,18 +107,17 @@ public class GameStateManager : MonoBehaviour
             StartCoroutine(PlayVictoryDefeatScreen());
         }
 
-
         //flash the screen when an item is stolen
         if (itemStolen)
+        {
+            if (_flashRoutine != null)
             {
-             stolenFlash.color = flashColour;
+                StopCoroutine(_flashRoutine);
             }
-        else
-            {
-                stolenFlash.color = Color.Lerp(stolenFlash.color, Color.clear, flashSpeed * Time.deltaTime);   
-            }
-        itemStolen = false;
-        
+
+            _flashRoutine = StartCoroutine(FlashItemStolen());
+            itemStolen = false;
+        }
     }
 
     private IEnumerator PlayVictoryDefeatScreen()
@@ -136,5 +136,19 @@ public class GameStateManager : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         SceneManager.LoadScene(gameSettings.SceneName);
+    }
+
+    private IEnumerator FlashItemStolen()
+    {
+        stolenFlash.color = flashColour;
+
+        float flashProgressTime = 0;
+
+        do
+        {
+            flashProgressTime += Time.deltaTime;
+            stolenFlash.color = Color.Lerp(stolenFlash.color, Color.clear, Mathf.InverseLerp(0, flashSpeed, flashProgressTime));
+            yield return new WaitForEndOfFrame();
+        } while (flashProgressTime <= flashSpeed);
     }
 }
