@@ -6743,11 +6743,6 @@ PrefabInstance:
       propertyPath: windowObject
       value: 
       objectReference: {fileID: 2097631827}
-    - target: {fileID: 114511210994573002, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 3}
-      propertyPath: secondsToBreakWindow
-      value: 2.8
-      objectReference: {fileID: 0}
     - target: {fileID: 114597638729624826, guid: 9b8c4e487d030f6448a3e85530e68a4a,
         type: 3}
       propertyPath: spawnPoints.Array.data[0].spawnPoint
@@ -6763,11 +6758,6 @@ PrefabInstance:
       propertyPath: endMessageObject
       value: 
       objectReference: {fileID: 1109421062}
-    - target: {fileID: 114568835452723248, guid: 9b8c4e487d030f6448a3e85530e68a4a,
-        type: 3}
-      propertyPath: windowSmashWave
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8c4e487d030f6448a3e85530e68a4a, type: 3}
 --- !u!1001 &573604528
